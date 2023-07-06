@@ -24,9 +24,9 @@ func HandleConn(conn net.Conn) {
 
 		msg := strings.TrimSuffix(string(b), "\n")
 		msg = strings.TrimSuffix(msg, "\r")
-		log.Println("new message", msg)
+		log.Println("new message:", msg)
 		if strings.EqualFold(msg, "exit") {
-			log.Println("receieve message `exit`")
+			log.Println("closing connection")
 			close(done)
 			return
 		}
